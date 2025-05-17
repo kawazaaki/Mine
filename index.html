@@ -36,9 +36,14 @@
     
     
     #cat {
-  position: relative;
+  position: absolute;
   width: 100vw;
   height: 200px;
+      bottom:0px;
+      left:0px;
+      display:flex;
+      justify-content:center;
+      align-item:center;
     }
     
     p {
@@ -58,33 +63,12 @@
   <section class="bg3"></section>
   <section class="bg4"></section>
   <div id="cat">
-    <p></p>
+    <p>will you be my girlfriend?</p>
     
       <button class="bt1">yes</button>
       <button id="bt2" class="bt2">no</button>
     
   </div>
-  
-
-  <script>
-    const button = document.getElementById("bt2");
-const container = document.getElementById("cat");
-
-button.addEventListener("click", () => {
-  const containerRect = container.getBoundingClientRect();
-
-  // حداکثر جابجایی در محور X و Y بر اساس اندازه کانتینر منهای اندازه دکمه
-  const maxX = container.clientWidth - button.offsetWidth;
-  const maxY = container.clientHeight - button.offsetHeight;
-
-  // موقعیت رندوم
-  const x = Math.floor(Math.random() * maxX);
-  const y = Math.floor(Math.random() * maxY);
-
-  // اعمال ترنسفورم
-  button.style.transform = `translate(${x}px, ${y}px)`;
-});
-  </script>
 </body>
 </html>
     
