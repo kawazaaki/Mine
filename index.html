@@ -16,7 +16,7 @@
     * {
       margin: 0;
       padding: 0;
-      box-sizing: border-box؛
+      box-sizing: border-box;
       
     }
 
@@ -56,10 +56,11 @@
       position: relative;
       bottom:20px;
     }
-    .cat{
-      Width:100wv;
-      height:200px
-    }
+   .cat {
+     position: relative;
+      width: 100vw;
+      height: 200px;
+     }
     
 
     .bt2 {
@@ -77,15 +78,15 @@
      <div id="button">
        <p>will you be my girlfriend?</p>
        <button class="bt1">yes</button>
-       <button class="bt2">no</button>
+       <button id="bt2">no</button>
      </div>
   </div>
 </body>
   <script>
-  <const btn = document.getElementById('.bt2');
+  <const btn = document.getElementById('bt2');
 const wrapper = document.querySelector('.cat');
 
-btn.addEventListener('mouseover', () => {
+btn.addEventListener('click', () => {
   const maxX = wrapper.clientWidth - btn.offsetWidth;
   const maxY = wrapper.clientHeight - btn.offsetHeight;
 
