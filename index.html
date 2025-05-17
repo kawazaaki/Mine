@@ -7,7 +7,7 @@
   <style>
     @font-face {
       font-family: 'FiraCode';
-      src: url('FiraCode-Medium.woff2.woff2') format('woff2');
+      src: url('FiraCode-Medium.woff2') format('woff2');
     }
  
     body {
@@ -60,6 +60,12 @@
       Width:100wv;
       height:200px
     }
+    
+
+    .bt2 {
+      position: absolute;
+      transition: all 0.3s ease;
+    }
   </style>
 </head>
 <body>
@@ -75,4 +81,19 @@
      </div>
   </div>
 </body>
+  <script>
+  <const btn = document.getElementById('.bt2');
+const wrapper = document.querySelector('.cat');
+
+btn.addEventListener('mouseover', () => {
+  const maxX = wrapper.clientWidth - btn.offsetWidth;
+  const maxY = wrapper.clientHeight - btn.offsetHeight;
+
+  const randX = Math.random() * maxX;
+  const randY = Math.random() * maxY;
+
+  btn.style.left = `${randX}px`;
+  btn.style.top = `${randY}px`;
+});
+  </script>
 </html>
