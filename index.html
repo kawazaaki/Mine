@@ -95,6 +95,17 @@
     const btn = document.getElementById('bt2');
     const wrapper = document.getElementById('button');
 
-    btn.addEventListener('enter', () => {
+    btn.addEventListener('mouseenter', () => {
       const maxX = wrapper.clientWidth - btn.offsetWidth;
-      const max
+      const maxY = wrapper.clientHeight - btn.offsetHeight;
+
+      const randX = Math.random() * maxX;
+      const randY = Math.random() * maxY;
+
+      btn.style.position = 'absolute';
+      btn.style.left = `${randX}px`;
+      btn.style.top = `${randY}px`;
+    });
+  </script>
+</body>
+</html>
