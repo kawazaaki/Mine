@@ -44,7 +44,12 @@
   align-items: center;
       right:20px;
 }
-
+#cat{
+  position:relative;
+}
+#cat>*{
+  position:absolute;
+}
 
 
 
@@ -77,7 +82,7 @@
 
   <script>
     addEventListener('load', ()=>{ // load
-const but = document.getElementById('button'), bS = but.style, bod = document.#cat;
+const but = document.getElementById('bt²'), bS = but.style, bod = document.#cat;
 but.onclick = function(){
   let m = bod.getBoundingClientRect(), mw = m.width, mh = m.height, b = this.getBoundingClientRect(), x = Math.floor(Math.random()*mw);
   let y = Math.floor(Math.random()*mh), w = b.width, h = b.height, xw = mw-w, yh = mh-h;
