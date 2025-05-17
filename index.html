@@ -42,6 +42,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+      left:20px;
 }
 
 .bt1 {
@@ -80,7 +81,7 @@
     const btn = document.getElementById('bt2');
     const wrapper = document.getElementById('cat');
 
-    btn.addEventListener('mouseenter', () => {
+    btn.addEventListener('click', () => {
       const maxX = wrapper.clientWidth - btn.offsetWidth;
       const maxY = wrapper.clientHeight - btn.offsetHeight;
 
