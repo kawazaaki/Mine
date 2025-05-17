@@ -38,22 +38,7 @@
   position: relative;
   width: 100vw;
   height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
       right:20px;
-}
-#cat{
-  position:relative;
-}
-#cat>*{
-  position:absolute;
-}
-
-
-
-    #button {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -63,7 +48,9 @@
     p {
       margin-bottom: 30px;
     }
-    
+    #bt2{
+     position: absolute:
+    }
     
   </style>
 </head>
@@ -73,23 +60,31 @@
   <section class="bg3"></section>
   <section class="bg4"></section>
   <div id="cat">
-    <p>will you be my girlfriend?</p>
-    <div id="button">
+    <p></p>
+    
       <button class="bt1">yes</button>
       <button id="bt2" class="bt2">no</button>
-    </div>
+    
   </div>
 
   <script>
-    addEventListener('load', ()=>{ // load
-const but = document.getElementById('bt²'), bS = but.style, bod = document.#cat;
-but.onclick = function(){
-  let m = bod.getBoundingClientRect(), mw = m.width, mh = m.height, b = this.getBoundingClientRect(), x = Math.floor(Math.random()*mw);
-  let y = Math.floor(Math.random()*mh), w = b.width, h = b.height, xw = mw-w, yh = mh-h;
-  bS.top = (y > yh ? yh : y)+'px';
-  bS.left = (x > xw ? xw : x)+'px';
-}
-});// end load
+    const button = document.getElementById("bt2");
+const container = document.getElementById("cat");
+
+button.addEventListener("click", () => {
+  const containerRect = container.getBoundingClientRect();
+
+  // حداکثر جابجایی در محور X و Y بر اساس اندازه کانتینر منهای اندازه دکمه
+  const maxX = container.clientWidth - button.offsetWidth;
+  const maxY = container.clientHeight - button.offsetHeight;
+
+  // موقعیت رندوم
+  const x = Math.floor(Math.random() * maxX);
+  const y = Math.floor(Math.random() * maxY);
+
+  // اعمال ترنسفورم
+  button.style.transform = `translate(${x}px, ${y}px)`;
+});
   </script>
 </body>
 </html>
