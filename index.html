@@ -15,6 +15,7 @@
       background: white;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
 
     * {
@@ -25,76 +26,4 @@
 
     section {
       height: 100vh;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .bg1 { background-image: url('1.png'); }
-    .bg2 { background-image: url('2.png'); }
-    .bg3 { background-image: url('3.png'); }
-    .bg4 { background-image: url('4.png'); }
-
-    #cat {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba(255, 255, 255, 0.8);
-      z-index: 100;
-    }
-
-    #button {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-    }
-
-    p {
-      margin-bottom: 30px;
-      font-size: 24px;
-    }
-    
-    button {
-      padding: 10px 30px;
-      font-size: 18px;
-      cursor: pointer;
-      font-family: 'FiraCode';
-    }
-    
-    .bt1 {
-      position: static;
-    }
-    
-    .bt2 {
-      position: relative;
-    }
-  </style>
-</head>
-<body>
-  <section class="bg1"></section>
-  <section class="bg2"></section>
-  <section class="bg3"></section>
-  <section class="bg4"></section>
-  <div id="cat">
-    <p>will you be my girlfriend?</p>
-    <div id="button">
-      <button class="bt1">yes</button>
-      <button id="bt2" class="bt2">no</button>
-    </div>
-  </div>
-
-  <script>
-    const btn = document.getElementById('bt2');
-    const wrapper = document.getElementById('button');
-
-    btn.addEventListener('mouseenter', () => {
-      const maxX = wrapper.clientWidth - btn.offsetWidth;
-      const max
+      background-size:
