@@ -12,15 +12,10 @@
     }
 
     section {
-      <section style="
-  height: 100vh;
-  background-image: url('your-image.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: black; /* برای پر کردن فضای خالی */
-">
-</section>
+      height: 100vh;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .bg1 {
@@ -35,8 +30,19 @@
       background-image: url('3.png');
     }
 
-.bg4 {
+    .bg4 {
       background-image: url('4.png');
+    }
+    
+    #button {
+      display:flex;
+      gap:20px;
+      position: fixed;
+      bottom:10px;
+      left:50%;
+      transforms: translateX(-50);
+      z-index:100;
+      
     }
   </style>
 </head>
@@ -45,5 +51,9 @@
   <section class="bg2"></section>
   <section class="bg3"></section>
   <section class="bg4"></section>
+  <div id="buttom">
+  <button class="bt1">yes</button>
+  <button class="bt2">no</button>
+  </div>
 </body>
 </html>
