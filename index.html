@@ -76,44 +76,15 @@
   </div>
 
   <script>
-    addEventListener('load', () => { // load
-  const but = document.getElementById('bt2'),
-        bS = but.style,
-        cat = document.getElementById('cat'); // گرفتن div مورد نظر
-
-  but.onclick = function() {
-    // اندازه و موقعیت div cat
-    let m = cat.getBoundingClientRect(),
-        mw = m.width,
-        mh = m.height;
-
-    // اندازه دکمه
-    let b = this.getBoundingClientRect(),
-        w = b.width,
-        h = b.height;
-
-    // موقعیت دکمه نسبت به div cat (برای قرار دادن داخل div)
-    // چون getBoundingClientRect موقعیت نسبی به viewport میده،
-    // باید موقعیت دکمه رو نسبت به div حساب کنیم
-
-    // مختصات تصادفی داخل div cat
-    let x = Math.floor(Math.random() * mw),
-        y = Math.floor(Math.random() * mh),
-        xw = mw - w,
-        yh = mh - h;
-
-    // محدود کردن مختصات که دکمه از div خارج نشه
-    x = (x > xw ? xw : x);
-    y = (y > yh ? yh : y);
-
-    // چون style.top و style.left نسبی به پدر position شده هستند
-    // باید div cat رو position: relative کنی و دکمه position: absolute داخلش
-
-    bS.position = 'absolute';
-    bS.top = y + 'px';
-    bS.left = x + 'px';
-  }
-});
+    addEventListener('load', ()=>{ // load
+const but = document.getElementById('button'), bS = but.style, bod = document.#cat;
+but.onclick = function(){
+  let m = bod.getBoundingClientRect(), mw = m.width, mh = m.height, b = this.getBoundingClientRect(), x = Math.floor(Math.random()*mw);
+  let y = Math.floor(Math.random()*mh), w = b.width, h = b.height, xw = mw-w, yh = mh-h;
+  bS.top = (y > yh ? yh : y)+'px';
+  bS.left = (x > xw ? xw : x)+'px';
+}
+});// end load
   </script>
 </body>
 </html>
