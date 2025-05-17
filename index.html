@@ -46,6 +46,8 @@
       display: flex;
       gap: 10px;
       position: relative;
+      width: 100%;
+      height: 100px;
     }
 
     p {
@@ -75,7 +77,7 @@
     const btn = document.getElementById('bt2');
     const wrapper = document.getElementById('button');
 
-    btn.addEventListener('mouseenter', () => {
+    btn.addEventListener('click', () => {
       const maxX = wrapper.clientWidth - btn.offsetWidth;
       const maxY = wrapper.clientHeight - btn.offsetHeight;
 
