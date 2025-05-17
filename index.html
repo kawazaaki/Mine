@@ -1,70 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
+
+
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>for yati</title>
   <style>
     @font-face {
       font-family: 'FiraCode';
       src: url('FiraCode-Medium.woff2') format('woff2');
-    }
+    }body {
+  font-family: 'FiraCode';
+ }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
 
-    body {
-      font-family: 'FiraCode';
-      margin: 0;
-      padding: 0;
-    }
+section {
+  height: 100vh;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    .cat {
-      width: 100vw;
-      height: 300px;
-      background: #f5f5f5;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+.bg1 {
+  background-image: url('1.png');
+}
 
-    p {
-      margin-bottom: 20px;
-    }
+.bg2 {
+  background-image: url('2.png');
+}
 
-    .bt1 {
-      padding: 10px 20px;
-    }
+.bg3 {
+  background-image: url('3.png');
+}
 
-    .bt2 {
-      position: absolute;
-      padding: 10px 20px;
-      transition: all 0.3s ease;
-      left: 50px;
-      top: 50px;
-    }
+.bg4 {
+  background-image: url('4.png');
+}
+
+#button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+}
+p {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom:20px;
+}
+
+.cat {
+  position: relative;
+  width: 100vw; 
+   height: 200px;
+     }
+
+.bt2 {
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
   </style>
 </head>
 <body>
+  <section class="bg1"></section>
+  <section class="bg2"></section>
+  <section class="bg3"></section>
+  <section class="bg4"></section>
   <div class="cat">
-    <p>will you be my girlfriend?</p>
-    <button class="bt1">yes</button>
-    <button class="bt2" id="bt2">no</button>
+     <div id="button">
+       <p>will you be my girlfriend?</p>
+       <button class="bt1">yes</button>
+       <button id="bt2">no</button>
+     </div>
   </div>
-
-  <script>
-    const btn = document.getElementById('bt2');
-    const wrapper = document.querySelector('.cat');
-
-    btn.addEventListener('click', () => {
-      const maxX = wrapper.clientWidth - btn.offsetWidth;
-      const maxY = wrapper.clientHeight - btn.offsetHeight;
-
-      const randX = Math.random() * maxX;
-      const randY = Math.random() * maxY;
-
-      btn.style.left = `${randX}px`;
-      btn.style.top = `${randY}px`;
-    });
-  </script>
 </body>
-</html>
+  <script>
+  const btn = document.querySelector('.bt2');
+  const wrapper = document.querySelector('.cat');
+
+  btn.addEventListener('click', () => {
+    const maxX = wrapper.clientWidth - btn.offsetWidth;
+    const maxY = wrapper.clientHeight - btn.offsetHeight;
+
+    const randX = Math.random() * maxX;
+    const randY = Math.random() * maxY;
+
+    btn.style.left = `${randX}px`;
+    btn.style.top = `${randY}px`;
+  });
+</script>
+  </html>
