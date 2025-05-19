@@ -39,10 +39,11 @@ body>*{
     
     }
     #femboy{
-      Width:80wv;
+      Width:80vw;
       color:#ccc;
       display: none;
-      translation: opasity 1.5s;
+      transition: opacity 1.5s;
+      opacity:0;
     }
     </style>
   </head>
@@ -74,7 +75,7 @@ but.onclick = function(){
   const left = (screenWidth - elWidth) / 2;
   el.style.left = `${left}px`;
 
-      const left = (screenHeight - elHeight) / 2;
+      const height = (screenHeight - elHeight) / 2;
   el.style.left = `${top}px`;
 }
 
