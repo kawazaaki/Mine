@@ -4,88 +4,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>.</title>
   <style>
-
     @font-face {
       font-family: 'FiraCode';
       src: url('FiraCode-Medium.woff2') format('woff2');
     }
-*{
-  box-sizing:border-box;
-  font-family:'FiraCode';
-}
-html,body{
-  width:100%; height:100%; margin:0; padding:0;
-}
-body{
-  position:relative;
-  height:200px;
-}
-body>*{
-  position:absolute;
-}
-#button {
-  margin: 0;
-  top: 45px;
-  left: 20px;
-}
+    * {
+      box-sizing: border-box;
+      font-family: 'FiraCode';
+    }
+    html, body {
+      width: 100%; height: 100%; margin: 0; padding: 0;
+    }
+    body {
+      position: relative;
+      height: 200px;
+    }
+    body > * {
+      position: absolute;
+    }
+    #button {
+      top: 45px;
+      left: 20px;
+    }
     #button1 {
-  margin: 0;
-  top: 45px;
-      z-index:600;
-  left: 70px;
+      top: 45px;
+      left: 70px;
     }
-    p{
+    p {
+      top: 0;
+      left: 0;
       margin: 0;
-  top: 0px;
-  left: 0px;
-    
     }
-    #femboy{
-      Width:80vw;
-      color:#ccc;
+    #femboy {
+      width: 80vw;
+      color: #00000055;
       display: none;
       transition: opacity 1.5s;
-      opacity:0;
-      display:flex;
-      justify-content:center;
-      align-item:center;
+      opacity: 0;
     }
-    </style>
-  </head>
+  </style>
+</head>
 <body>
-<button id='button'>no</button>
-  <button id='button1'>yes</button>
-<p>are you femboy?</p>
+  <button id="button">no</button>
+  <button id="button1">yes</button>
+  <p>are you femboy?</p>
   <h1 id="femboy">femboy</h1>
-</body>
+
   <script>
-    addEventListener('load', ()=>{ // load
-const but = document.getElementById('button'), bS = but.style, bod = document.body;
-but.onclick = function(){
-  let m = bod.getBoundingClientRect(), mw = m.width, mh = m.height, b = this.getBoundingClientRect(), x = Math.floor(Math.random()*mw);
-  let y = Math.floor(Math.random()*mh), w = b.width, h = b.height, xw = mw-w, yh = mh-h;
-  bS.top = (y > yh ? yh : y)+'px';
-  bS.left = (x > xw ? xw : x)+'px';
-}});// end load
-    document.getElementById('button1').onclick = () => alert('pls send me nude 🙏');
-    
-    
+    const button = document.getElementById('button');
+    const buttonStyle = button.style;
+    const body = document.body;
+    const femboy = document.getElementById('femboy');
 
+    // تابع جا‌به‌جایی دکمه "no"
+    button.onclick = () => {
+      const bodyRect = body.getBoundingClientRect();
+      const buttonRect = button.getBoundingClientRect();
+      const maxX = bodyRect.width - buttonRect.width;
+      const maxY = bodyRect.height - buttonRect.height;
+      const newX = Math.floor(Math.random() * maxX);
+      const newY = Math.floor(Math.random() * maxY);
+      buttonStyle.top = `${newY}px`;
+      buttonStyle.left = `${newX}px`;
+    };
+
+    // تابع وسط‌چین کردن
+    function centerElement(el) {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      const elWidth = el.offsetWidth;
+      const elHeight = el.offsetHeight;
+      const left = (screenWidth - elWidth) / 2;
+      const top = (screenHeight - elHeight) / 2;
+
+      el.style.position = 'absolute';
+      el.style.left = `${left}px`;
+      el.style.top = `${top}px`;
+    }
+
+    // وقتی resize میشه، وسط نگه‌دار
+    window.addEventListener('resize', () => {
+      if (femboy.style.display === 'block') {
+        centerElement(femboy);
+      }
+    });
+
+    // کلیک روی yes
+    document.getElementById('button1').onclick = () => {
+      alert('pls send me nude 🙏');
+    };
+
+    // بعد از ۳ بار کلیک روی no، femboy ظاهر بشه
     let clickCount = 0;
-
-document.getElementById('button').addEventListener('click', function () {
-  clickCount++;
-
-  if (clickCount === 3) {
-    const el = document.getElementById('femboy');
-    el.style.display = 'block';
-    setTimeout(() => {
-      el.style.opacity = '1';
-    }, 10); // slight delay to trigger transition
-  }
-});
+    button.addEventListener('click', () => {
+      clickCount++;
+      if (clickCount === 3) {
+        femboy.style.display = 'block';
+        centerElement(femboy);
+        setTimeout(() => {
+          femboy.style.opacity = '1';
+        }, 10);
+      }
+    });
   </script>
+</body>
 </html>
-    
-    
-      
