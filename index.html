@@ -36,7 +36,10 @@ body>*{
       margin: 0;
   top: 0px;
   left: 0px;
-
+    
+    }
+    #femboy{
+      Width:80wv;
     }
     </style>
   </head>
@@ -44,6 +47,7 @@ body>*{
 <button id='button'>no</button>
   <button id='button1'>yes</button>
 <p>are you femboy?</p>
+  <h1 id="femboy">femboy</h1>
 </body>
   <script>
     addEventListener('load', ()=>{ // load
@@ -54,7 +58,35 @@ but.onclick = function(){
   bS.top = (y > yh ? yh : y)+'px';
   bS.left = (x > xw ? xw : x)+'px';
 }});// end load
-    document.getElementById('button1').onclick = () => alert('😂😂😂😂😂');
+    document.getElementById('button1').onclick = () => alert('😂😂');
+    
+    function centerElement() {
+  const el = document.getElementById('femboy');
+  const screenWidth = window.innerWidth;
+  const elWidth = el.offsetWidth;
+
+  const left = (screenWidth - elWidth) / 2;
+  el.style.left = `${left}px`;
+}
+
+// وقتی صفحه لود شد یا تغییر اندازه داد
+window.addEventListener('load', centerElement);
+window.addEventListener('resize', centerElement);
+
+    
+    let clickCount = 0;
+
+document.getElementById('button').addEventListener('click', function () {
+  clickCount++;
+
+  if (clickCount === 3) {
+    const el = document.getElementById('femboy');
+    el.style.display = 'block';
+    setTimeout(() => {
+      el.style.opacity = '1';
+    }, 10); // slight delay to trigger transition
+  }
+});
   </script>
 </html>
     
