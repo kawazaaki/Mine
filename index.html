@@ -36,12 +36,11 @@
       margin: 0;
     }
     #femboy {
-      width: 100vw;
-      color: #00000044;
+      width: 80vw;
+      color: #00000055;
       display: none;
       transition: opacity 1.5s;
       opacity: 0;
-      
     }
   </style>
 </head>
@@ -69,7 +68,26 @@
       buttonStyle.left = `${newX}px`;
     };
 
+    // تابع وسط‌چین کردن
+    function centerElement(el) {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      const elWidth = el.offsetWidth;
+      const elHeight = el.offsetHeight;
+      const left = (screenWidth - elWidth) / 2;
+      const top = (screenHeight - elHeight) / 2;
 
+      el.style.position = 'absolute';
+      el.style.left = `${left}px`;
+      el.style.top = `${top}px`;
+    }
+
+    // وقتی resize میشه، وسط نگه‌دار
+    window.addEventListener('resize', () => {
+      if (femboy.style.display === 'block') {
+        centerElement(femboy);
+      }
+    });
 
     // کلیک روی yes
     document.getElementById('button1').onclick = () => {
