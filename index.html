@@ -31,6 +31,7 @@ body>*{
     #button1 {
   margin: 0;
   top: 45px;
+      z-index:600;
   left: 70px;
     }
     p{
@@ -68,26 +69,8 @@ but.onclick = function(){
 }});// end load
     document.getElementById('button1').onclick = () => alert('pls send me nude 🙏');
     
-    function centerElement() {
-  const el = document.getElementById('femboy');
-  const screenWidth = window.innerWidth;
-  const elWidth = el.offsetWidth;
-
-      const screenHeight = window.innerHeight;
-  const elHeight = el.offsetHeight;
-      
-  const left = (screenWidth - elWidth) / 2;
-  el.style.left = `${left}px`;
-
-      const height = (screenHeight - elHeight) / 2;
-  el.style.left = `${top}px`;
-}
-
-// وقتی صفحه لود شد یا تغییر اندازه داد
-window.addEventListener('load', centerElement);
-window.addEventListener('resize', centerElement);
-
     
+
     let clickCount = 0;
 
 document.getElementById('button').addEventListener('click', function () {
