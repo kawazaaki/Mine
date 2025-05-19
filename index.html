@@ -40,6 +40,9 @@ body>*{
     }
     #femboy{
       Width:80wv;
+      color:#ccc;
+      display: none;
+      translation: opasity 1.5s;
     }
     </style>
   </head>
@@ -65,8 +68,14 @@ but.onclick = function(){
   const screenWidth = window.innerWidth;
   const elWidth = el.offsetWidth;
 
+      const screenHeight = window.innerHeight;
+  const elHeight = el.offsetHeight;
+      
   const left = (screenWidth - elWidth) / 2;
   el.style.left = `${left}px`;
+
+      const left = (screenHeight - elHeight) / 2;
+  el.style.left = `${top}px`;
 }
 
 // وقتی صفحه لود شد یا تغییر اندازه داد
