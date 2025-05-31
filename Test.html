@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Letter Animation</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: monospace;
+      font-size: 18px;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      padding: 20px;
+      text-align: left;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="text"></div>
+  <script>
+    const targetText = "kagan, may I be yours?";
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const textContainer = document.getElementById("text");
+
+    let finalText = "";
+    let index = 0;
+    const maxLines = 10;
+    let lines = [];
+
+    function animateLetter() {
+      if (index >= targetText.length) return;
+
+      // اگر حرف فعلی فاصله یا نشانه‌گذاری باشه
+      if (!/[A-Za-z]/.test(targetText[index])) {
+        finalText += targetText[index];
+        lines.push(finalText);
+        if (lines.length > maxLines) lines.shift();
+        textContainer.textContent = lines.join("\n");
+        index++;
+        setTimeout(animateLetter, 150);
+        return;
+      }
+
+      let i = 0;
+      function roll() {
+        if (i < alphabet.length) {
+          let fakeChar = alphabet[i];
+          let currentLine = finalText + fakeChar;
+          lines.push(currentLine);
+          if (lines.length > maxLines) lines.shift();
+          textContainer.textContent = lines.join("\n");
+          i++;
+          setTimeout(roll, 30);
+        } else {
+          // اضافه کردن حرف واقعی
+          finalText += targetText[index];
+          lines.push(finalText);
+          if (lines.length > maxLines) lines.shift();
+          textContainer.textContent = lines.join("\n");
+          fixLines(finalText); // اینجاست جادو
+          index++;
+          setTimeout(animateLetter, 150);
+        }
+      }
+
+      roll();
+    }
+
+    function fixLines(correctLine) {
+      let step = lines.length - 2; // از یکی مونده به آخر شروع می‌کنیم (آخرین خط درسته)
+      function fixNext() {
+        if (step < 0) return;
+        lines[step] = correctLine;
+        textContainer.textContent = lines.join("\n");
+        step--;
+        setTimeout(fixNext, 50); // این عدد رو می‌تونی تنظیم کنی برای سرعت
+      }
+      fixNext();
+    }
+
+    animateLetter();
+  </script>
+</body>
+</html>
