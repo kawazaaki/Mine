@@ -66,7 +66,7 @@
           if (lines.length > maxLines) lines.shift();
           textContainer.textContent = lines.join("\n");
           i++;
-          setTimeout(roll, 30);
+          setTimeout(roll, 35);
         } else {
           // اضافه کردن حرف واقعی
           finalText += targetText[index];
@@ -101,7 +101,7 @@ document.getElementById("btn").style.opacity = "0";
 // بعد از ۱۶ ثانیه نمایش دادن دکمه‌ها
 setTimeout(() => {
   document.getElementById("btn").style.opacity = "1";
-}, 16000);
+}, 15000);
   </script>
 </body>
 </html>
