@@ -102,6 +102,24 @@ document.getElementById("btn").style.opacity = "0";
 setTimeout(() => {
   document.getElementById("btn").style.opacity = "1";
 }, 15000);
+  // تابع رندوم برای موقعیت‌دهی توی بازه 0 تا 300
+  function randomPosition(max = 300) {
+    return Math.floor(Math.random() * max);
+  }
+
+  // انتخاب دکمه "No"
+  const noBtn = document.getElementById("n");
+
+  // افزودن استایل لازم برای انیمیشن
+  noBtn.style.position = "absolute";
+  noBtn.style.transition = "top 0.3s ease, left 0.3s ease";
+
+  noBtn.addEventListener("click", (e) => {
+    const top = randomPosition();
+    const left = randomPosition();
+    noBtn.style.top = top + "px";
+    noBtn.style.left = left + "px";
+  });
   </script>
 </body>
 </html>
