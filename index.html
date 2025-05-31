@@ -18,11 +18,20 @@
       text-align: left;
       white-space: pre;
     }
+    #btn{
+      display: flex;
+      align-item:center;
+      gap:20px;
+    }
   </style>
 </head>
 <body>
   <div class="container" id="text"></div>
-  <script>
+  <div id="btn">
+  <button id="y" onclick="alert('kir shody')">Yes</button>
+<button id="n" onclick="alert('🥲 maybe later...')">No</button>
+  </div>
+    <script>
     const targetText = "kagan, may I be yours?";
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const textContainer = document.getElementById("text");
