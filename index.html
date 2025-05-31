@@ -35,7 +35,7 @@
   </div>
     <script>
     const targetText = "kagan, may I be yours?";
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const alphabet = "abcdefghijklmnopqrswvz?";
     const textContainer = document.getElementById("text");
 
     let finalText = "";
@@ -66,7 +66,7 @@
           if (lines.length > maxLines) lines.shift();
           textContainer.textContent = lines.join("\n");
           i++;
-          setTimeout(roll, 30);
+          setTimeout(roll, 5);
         } else {
           // اضافه کردن حرف واقعی
           finalText += targetText[index];
