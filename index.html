@@ -34,7 +34,7 @@
   <div class="container" id="text"></div>
   <div id="btn">
   <button id="y" onclick="alert('kir shody')">Yes</button>
-<button id="n" onclick="alert('🥲 maybe later...')">No</button>
+<button id="n">No</button>
   </div>
     <script>
     const targetText = "kagan, may I be yours?";
@@ -104,7 +104,7 @@ document.getElementById("btn").style.opacity = "0";
 // بعد از ۱۶ ثانیه نمایش دادن دکمه‌ها
 setTimeout(() => {
   document.getElementById("btn").style.opacity = "1";
-}, 15000);
+}, 17000);
   // تابع رندوم برای موقعیت‌دهی توی بازه 0 تا 300
   function randomPosition(max = 300) {
     return Math.floor(Math.random() * max);
