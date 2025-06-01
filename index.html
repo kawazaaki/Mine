@@ -27,102 +27,15 @@
     }
     #y{
       margin-left:40px;
-      ;
+    }
+    #text{
+      
   </style>
 </head>
 <body>
-  <div class="container" id="text"></div>
+  <div class="container" id="text" align="center"><h1>kir</h1></div>
   <div id="btn">
-  <button id="y" onclick="alert('kir shody')">Yes</button>
-<button id="n">No</button>
+  
   </div>
-    <script>
-    const targetText = "arash, may I be yours?";
-    const alphabet = "ABCDEFGHIJKLMOPQRSTUVWXYZ?";
-    const textContainer = document.getElementById("text");
-
-    let finalText = "";
-    let index = 0;
-    const maxLines = 10;
-    let lines = [];
-
-    function animateLetter() {
-      if (index >= targetText.length) return;
-
-      // اگر حرف فعلی فاصله یا نشانه‌گذاری باشه
-      if (!/[A-Za-z]/.test(targetText[index])) {
-        finalText += targetText[index];
-        lines.push(finalText);
-        if (lines.length > maxLines) lines.shift();
-        textContainer.textContent = lines.join("\n");
-        index++;
-        setTimeout(animateLetter, 150);
-        return;
-      }
-
-      let i = 0;
-      function roll() {
-        if (i < alphabet.length) {
-          let fakeChar = alphabet[i];
-          let currentLine = finalText + fakeChar;
-          lines.push(currentLine);
-          if (lines.length > maxLines) lines.shift();
-          textContainer.textContent = lines.join("\n");
-          i++;
-          setTimeout(roll, 35);
-        } else {
-          // اضافه کردن حرف واقعی
-          finalText += targetText[index];
-          lines.push(finalText);
-          if (lines.length > maxLines) lines.shift();
-          textContainer.textContent = lines.join("\n");
-          fixLines(finalText); // اینجاست جادو
-          index++;
-          setTimeout(animateLetter, 150);
-        }
-      }
-
-      roll();
-    }
-
-    function fixLines(correctLine) {
-      let step = lines.length - 2; // از یکی مونده به آخر شروع می‌کنیم (آخرین خط درسته)
-      function fixNext() {
-        if (step < 0) return;
-        lines[step] = correctLine;
-        textContainer.textContent = lines.join("\n");
-        step--;
-        setTimeout(fixNext, 50); // این عدد رو می‌تونی تنظیم کنی برای سرعت
-      }
-      fixNext();
-    }
-
-    animateLetter();
-      // پنهان کردن دکمه‌ها در ابتدا
-document.getElementById("btn").style.opacity = "0";
-
-// بعد از ۱۶ ثانیه نمایش دادن دکمه‌ها
-setTimeout(() => {
-  document.getElementById("btn").style.opacity = "1";
-}, 18500);
-  // تابع رندوم برای موقعیت‌دهی توی بازه 0 تا 300
-  function randomPosition(max = 300) {
-    return Math.floor(Math.random() * max);
-  }
-
-  // انتخاب دکمه "No"
-  const noBtn = document.getElementById("n");
-
-  // افزودن استایل لازم برای انیمیشن
-  noBtn.style.position = "absolute";
-  noBtn.style.transition = "top 0.1s ease, left 0.1s ease";
-
-  noBtn.addEventListener("click", (e) => {
-    const top = randomPosition();
-    const left = randomPosition();
-    noBtn.style.top = top + "px";
-    noBtn.style.left = left + "px";
-  });
-  </script>
-</body>
+    </body>
 </html>
